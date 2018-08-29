@@ -1,0 +1,43 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <style type="test/css">
+        div{ margin: 20px; font-size: 18px; border: solid 1px blue; }
+    </style>
+    <script src="main.js">
+        function bubble() {
+            var div = document.getElementsByTagName('div');
+            var show = document.getElementById("show");
+            for (var i = 0; i < div.length; ++i) {
+                div[i].onclick = (function(i) {
+                    return function() {
+                        div[i].style.border = '1px dashed red';
+                        show.innerHTML += div[i].className + ">";
+                    }
+                })(i);
+            }
+        }
+        window.onload = bubble;
+    </script>
+</head>
+
+<body>
+    <div class="div-1">div-1
+        <div class="div-2">div-2
+            <div class="div-3">div-3
+                <div class="div-4">div-4
+                    <div class="div-5">div-5</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p id="show"></p>
+</body>
+
+</html>
