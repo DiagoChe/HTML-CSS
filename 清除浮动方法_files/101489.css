@@ -1,0 +1,25 @@
+body{font-family: Verdana,Geneva,Arial,Helvetica,sans-serif;color: #222222;}
+a:link {color:#2174EA;text-decoration: none;}
+a:hover{color:#F00;text-decoration:underline;}
+#home {width: 85%;}
+#topicList{width:72%;}
+#sideBar{width:22%;}
+.postTitle{width:100%;}
+.dayTitle{width:100%;}
+.postCon{width:100%;} 
+.postDesc{width:100%;}
+.postTitle a:link, .postTitle a:visited, .postTitle a:active {color:#2174EA;}
+a.postTitle2:hover{color:#F00;text-decoration:underline;}
+.dayTitle {border-bottom: 2px solid #DBF4F9;}
+#topics .postTitle{border-bottom: 2px solid #DBF4F9;}
+#topicList{margin-top:20px}
+#blogTitle h2{font-size:14px;}
+.c_b_p_desc{line-height: 1.7;}
+.postBody{color: #222222; font-size: 13px;line-height: 1.7;}
+.c_b_p_desc_readmore {padding-left: 20px;}
+.postCon a:link,.postCon a:active{color:#2174EA;}
+.postCon a:hover{color:#F00;}
+.entrylistItemTitle a:link, .postCon a:active{color:#2174EA;}
+.entrylistTitle{color:#B79587;border-bottom:1px solid #82CEEB;line-height:29px;font-size: 20px; }
+.catListPostCategory li{float:left;width:135px;}
+.catListPostArchive{clear:left;}

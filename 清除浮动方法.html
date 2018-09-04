@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="origin">
+<title>CSS技巧（一）：清除浮动 - ForEvErNoMe - 博客园</title>
+<meta property="og:description" content="什么是CSS清除浮动？在非IE浏览器（如Firefox）下，当容器的高度为auto，且容器的内容中有浮动（float为left或right）的元素，在这种情况下，容器的高度不能自动伸长以适应内容的高度">
+<link type="text/css" rel="stylesheet" href="%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E6%96%B9%E6%B3%95_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E6%96%B9%E6%B3%95_files/bundle-LoveIsIntheAir.css">
+<link type="text/css" rel="stylesheet" href="%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E6%96%B9%E6%B3%95_files/101489.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E6%96%B9%E6%B3%95_files/bundle-LoveIsIntheAir-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/ForEvErNoME/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/ForEvErNoME/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/ForEvErNoME/wlwmanifest.xml">
+<script async="" src="%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E6%96%B9%E6%B3%95_files/analytics.js"></script><script type="text/javascript" src="%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E6%96%B9%E6%B3%95_files/encoder.js"></script><script src="%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E6%96%B9%E6%B3%95_files/jquery-2.js"></script>
+<script type="text/javascript">var currentBlogApp = 'ForEvErNoME', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E6%96%B9%E6%B3%95_files/blog-common.js" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<center>
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="https://www.cnblogs.com/ForEvErNoME/"><img id="blogLogo" src="%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E6%96%B9%E6%B3%95_files/logo.gif" alt=""></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="https://www.cnblogs.com/ForEvErNoME/">ForEvErNoMe</a></h1>
+<h2></h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+	<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">博客园</a></li>
+	<li><a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/ForEvErNoME/">首页</a></li>
+	<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+	<li><a id="blog_nav_contact" accesskey="9" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/ForEvErNoMe">联系</a></li>
+	<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+	<li><a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/ForEvErNoME/rss">订阅</a>
+	<a id="blog_nav_rss_image" class="aHeaderXML" href="https://www.cnblogs.com/ForEvErNoME/rss"><img src="%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E6%96%B9%E6%B3%95_files/xml.gif" alt="订阅"></a></li>
+</ul>
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<!--done-->
+随笔- 63&nbsp;
+文章- 0&nbsp;
+评论- 424&nbsp;
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div class="clear"></div>
+	<div id="topicList">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/ForEvErNoME/p/3383539.html">CSS技巧（一）：清除浮动</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body" class="blogpost-body"><p><span style="color: #993300;"><strong>什么是CSS清除浮动？</strong></span></p>
+<p><span>在非IE浏览器（如Firefox）下，当容器的高度为auto，且容器的内容中有浮动（float为left或right）的元素，
+在这种情况下，容器的高度不能自动伸长以适应内容的高度，使得内容溢出到容器外面而影响（甚至破坏）布局的现象。这个现象叫浮动溢出，为了防止这个现象的
+出现而进行的CSS处理，就叫CSS清除浮动。</span></p>
+<p><span>引用W3C的例子，news容器没有包围浮动的元素。</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E6%96%B9%E6%B3%95_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #000000;">.news {
+  background-color: gray;
+  border: solid 1px black;
+  }
+
+.news img {
+  float: left;
+  }
+
+.news p {
+  float: right;
+  }
+
+</span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="news"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">img </span><span style="color: #ff0000;">src</span><span style="color: #0000ff;">="news-pic.jpg"</span> <span style="color: #0000ff;">/&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>some text<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E6%96%B9%E6%B3%95_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><img src="%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E6%96%B9%E6%B3%95_files/23224343-9668661a8f63445699e0a8c24a64662b.jpg" alt=""></p>
+<p>&nbsp;</p>
+<p><span style="color: #993300;"><strong>清除浮动方法</strong></span></p>
+<p><strong>方法一：使用带clear属性的空元素</strong></p>
+<p>在浮动元素后使用一个空元素如&lt;div 
+class="clear"&gt;&lt;/div&gt;，并在CSS中赋予.clear{clear:both;}属性即可清理浮动。亦可使用&
+lt;br class="clear" /&gt;或&lt;hr class="clear" /&gt;来进行清理。</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E6%96%B9%E6%B3%95_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #000000;">.news {
+  background-color: gray;
+  border: solid 1px black;
+  }
+
+.news img {
+  float: left;
+  }
+
+.news p {
+  float: right;
+  }
+
+.clear {
+  clear: both;
+  }
+
+</span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="news"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">img </span><span style="color: #ff0000;">src</span><span style="color: #0000ff;">="news-pic.jpg"</span> <span style="color: #0000ff;">/&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>some text<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="clear"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E6%96%B9%E6%B3%95_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>优点：简单，代码少，浏览器兼容性好。</p>
+<p>缺点：<span>需要添加大量无语义的html元素，代码不够优雅，后期不容易维护。</span></p>
+<p>&nbsp;</p>
+<p><strong>方法二：使用CSS的overflow属性</strong></p>
+<p><span>给浮动元素的容器添加overflow:hidden;或overflow:auto;可以清除浮动，<span>另外在 IE6 中还需要触发 hasLayout ，例如为父元素设置容器宽高或设置 zoom:1。</span></span></p>
+<p>在添加overflow属性后，浮动元素又回到了容器层，把容器高度撑起，达到了清理浮动的效果。</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E6%96%B9%E6%B3%95_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #000000;">.news {
+  background-color: gray;
+  border: solid 1px black;
+  overflow: hidden;<br><span>  *zoom: 1;</span>
+  }
+
+.news img {
+  float: left;
+  }
+
+.news p {
+  float: right;
+  }
+
+</span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="news"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">img </span><span style="color: #ff0000;">src</span><span style="color: #0000ff;">="news-pic.jpg"</span> <span style="color: #0000ff;">/&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>some text<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E6%96%B9%E6%B3%95_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p><strong>方法三：给浮动的元素的容器添加浮动</strong></p>
+<p><span>给浮动元素的容器也添加上浮动属性即可清除内部浮动，但是这样会使其整体浮动，影响布局，不推荐使用。</span></p>
+<p>&nbsp;</p>
+<p><strong>方法四：使用邻接元素处理</strong></p>
+<p><span><span>什么都不做，给浮动元素后面的元素添加clear属性。</span></span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E6%96%B9%E6%B3%95_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #000000;">.news {
+  background-color: gray;
+  border: solid 1px black;
+  }
+
+.news img {
+  float: left;
+  }
+
+.news p {
+  float: right;
+  }
+
+.content{
+  clear:both;
+  }
+
+</span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="news"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">img </span><span style="color: #ff0000;">src</span><span style="color: #0000ff;">="news-pic.jpg"</span> <span style="color: #0000ff;">/&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>some text<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="content"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E6%96%B9%E6%B3%95_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p><strong>方法五：使用CSS的:after伪元素</strong></p>
+<p>结合 :after 伪元素（注意这不是伪类，而是伪元素，代表一个元素之后最近的元素）和 IEhack ，可以完美兼容当前主流的各大浏览器，这里的 IEhack 指的是触发 hasLayout。</p>
+<p>给浮动元素的容器添加一个clearfix的class，然后给这个class添加一个:after伪元素实现元素末尾添加一个看不见的块元素（Block element）清理浮动。</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E6%96%B9%E6%B3%95_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #000000;">.news {
+  background-color: gray;
+  border: solid 1px black;
+  }
+
+.news img {
+  float: left;
+  }
+
+.news p {
+  float: right;
+  }
+
+.clearfix:after{
+  content: "020"; 
+  display: block; 
+  height: 0; 
+  clear: both; 
+  visibility: hidden;  
+  }
+
+.clearfix {
+  /* 触发 hasLayout */ 
+  zoom: 1; 
+  }
+
+</span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="news clearfix"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">img </span><span style="color: #ff0000;">src</span><span style="color: #0000ff;">="news-pic.jpg"</span> <span style="color: #0000ff;">/&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>some text<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E6%96%B9%E6%B3%95_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>通过CSS伪元素在容器的内部元素最后添加了一个看不见的空格"020"或点"."，并且赋予clear属性来清除浮动。需要注意的是为了IE6和IE7浏览器，要给clearfix这个class添加一条zoom:1;触发haslayout。</p>
+<p>&nbsp;</p>
+<p><span style="color: #993300;"><strong>总结</strong></span></p>
+<p>通过上面的例子，我们不难发现清除浮动的方法可以分成两类：</p>
+<p>一是利用 clear 属性，包括在浮动元素末尾添加一个带有 clear: both 属性的空 div 来闭合元素，其实利用 :after 伪元素的方法也是在元素末尾添加一个内容为一个点并带有 clear: both 属性的元素实现的。</p>
+<p>二是触发浮动元素父元素的 BFC (Block Formatting Contexts, 块级格式化上下文)，使到该父元素可以包含浮动元素，关于这一点。</p>
+<p>&nbsp;</p>
+<p><span style="color: #993300;"><strong>推荐</strong></span></p>
+<p><span>在网页主要布局时使用:after伪元素方法并作为主要清理浮动方式；在小模块如ul里使用overflow:hidden;（留意可能产生的隐藏溢出元素问题）；如果本身就是浮动元素则可自动清除内部浮动，无需格外处理；正文中使用邻接元素清理之前的浮动。</span></p>
+<p>最后可以使用相对完美的:after伪元素方法清理浮动，文档结构更加清晰。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div id="MySignature" style="width: 90%; margin: 0 auto;">
+<div id="PSignature" style="height: 120px; line-height: 20px; padding-top: 20px; padding-right: 10px; padding-bottom: 10px; padding-left: 150px; background: url('http://images.cnblogs.com/cnblogs_com/ForEvErNoME/345750/t_me.jpg') #FFF7DC no-repeat 2% 50%; font-size: 12px; border: 1px solid #FFBFBF;">作者： <a style="text-decoration: none; color: #075db3;" href="http://www.cnblogs.com/ForEvErNoME/" target="_blank">ForEvErNoME</a> <br> 出处： <a style="text-decoration: none; color: #075db3;" href="http://www.cnblogs.com/ForEvErNoME/" target="_blank">http://www.cnblogs.com/ForEvErNoME/</a> <br> 欢迎转载或分享，但请务必声明文章出处。如果文章对您有帮助，希望你能 <span style="color: #ab0eab; font-weight: bold;">推荐</span> 或 <span style="color: #ab0eab; font-weight: bold;">关注</span>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory">分类: <a href="https://www.cnblogs.com/ForEvErNoME/category/489081.html" target="_blank">CSS</a></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(3383539,cb_blogId,1);green_channel_success(this,'谢谢推荐！');">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow('9637fb3d-860b-e111-b7b9-842b2b196315');" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E6%96%B9%E6%B3%95_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E6%96%B9%E6%B3%95_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/ForEvErNoME/" target="_blank"><img src="%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E6%96%B9%E6%B3%95_files/u349636.jpg" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/ForEvErNoME/">ForEvErNoMe</a><br>
+            <a href="http://home.cnblogs.com/u/ForEvErNoME/followees">关注 - 0</a><br>
+            <a href="http://home.cnblogs.com/u/ForEvErNoME/followers">粉丝 - 458</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow('9637fb3d-860b-e111-b7b9-842b2b196315');return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(3383539,'Digg')">
+        <span class="diggnum" id="digg_count">35</span>
+    </div>
+    <div class="buryit" onclick="votePost(3383539,'Bury')">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+<script type="text/javascript">
+    currentDiggType = 0;
+</script></div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="https://www.cnblogs.com/ForEvErNoME/p/3373641.html" class="p_n_p_prefix">« </a> 上一篇：<a href="https://www.cnblogs.com/ForEvErNoME/p/3373641.html" title="发布于2013-10-17 16:43">CSS基础（七）：z-index详解</a><br><a href="https://www.cnblogs.com/ForEvErNoME/p/3385153.html" class="p_n_p_prefix">» </a> 下一篇：<a href="https://www.cnblogs.com/ForEvErNoME/p/3385153.html" title="发布于2013-10-24 11:26">CSS技巧（二）：CSS hack</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2013-10-23 23:23</span> <a href="https://www.cnblogs.com/ForEvErNoME/">ForEvErNoMe</a> 阅读(<span id="post_view_count">86420</span>) 评论(<span id="post_comment_count">14</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=3383539" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(3383539);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=101489,cb_entryId=3383539,cb_blogApp=currentBlogApp,cb_blogUserGuid='9637fb3d-860b-e111-b7b9-842b2b196315',cb_entryCreatedDate='2013/10/23 23:23:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"><div id="comments_pager_top"></div>
+<!--done-->
+<br>
+<div class="feedback_area_title">发表评论</div>
+<div class="feedbackNoItems"></div>
+	
+
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="#3053541" class="layer">#1楼</a><a name="3053541" id="comment_anchor_3053541"></a>  <span class="comment_date">2014-10-29 17:12</span> | <a id="a_comment_author_3053541" href="https://www.cnblogs.com/fej121/" target="_blank">为森</a> <a href="http://msg.cnblogs.com/send/%E4%B8%BA%E6%A3%AE" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3053541" class="blog_comment_body">这么好的文章没人顶</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3053541,'Digg',this)">支持(3)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3053541,'Bury',this)">反对(1)</a></div><span id="comment_3053541_avatar" style="display:none;">http://pic.cnblogs.com/face/28457/20141210231443.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="#3169346" class="layer">#2楼</a><a name="3169346" id="comment_anchor_3169346"></a>  <span class="comment_date">2015-04-23 21:34</span> | <a id="a_comment_author_3169346" href="http://home.cnblogs.com/u/624390/" target="_blank">求知无涯</a> <a href="http://msg.cnblogs.com/send/%E6%B1%82%E7%9F%A5%E6%97%A0%E6%B6%AF" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3169346" class="blog_comment_body">好文章，，好。。。。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3169346,'Digg',this)">支持(1)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3169346,'Bury',this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="#3357090" class="layer">#3楼</a><a name="3357090" id="comment_anchor_3357090"></a>  <span class="comment_date">2016-01-30 23:26</span> | <a id="a_comment_author_3357090" href="https://www.cnblogs.com/iexploree/" target="_blank">索迩</a> <a href="http://msg.cnblogs.com/send/%E7%B4%A2%E8%BF%A9" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3357090" class="blog_comment_body">写得好，拜读了！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3357090,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3357090,'Bury',this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="#3482419" class="layer">#4楼</a><a name="3482419" id="comment_anchor_3482419"></a>  <span class="comment_date">2016-08-03 17:58</span> | <a id="a_comment_author_3482419" href="https://www.cnblogs.com/yzfdjzwl/" target="_blank">动机在未来</a> <a href="http://msg.cnblogs.com/send/%E5%8A%A8%E6%9C%BA%E5%9C%A8%E6%9C%AA%E6%9D%A5" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3482419" class="blog_comment_body">谢谢了</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3482419,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3482419,'Bury',this)">反对(0)</a></div><span id="comment_3482419_avatar" style="display:none;">http://pic.cnblogs.com/face/775835/20180415233633.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="#3508008" class="layer">#5楼</a><a name="3508008" id="comment_anchor_3508008"></a>  <span class="comment_date">2016-09-11 17:07</span> | <a id="a_comment_author_3508008" href="https://www.cnblogs.com/nanshanlaoyao/" target="_blank">南山老幺</a> <a href="http://msg.cnblogs.com/send/%E5%8D%97%E5%B1%B1%E8%80%81%E5%B9%BA" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3508008" class="blog_comment_body">写的好，转载一下</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3508008,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3508008,'Bury',this)">反对(0)</a></div><span id="comment_3508008_avatar" style="display:none;">http://pic.cnblogs.com/face/1022000/20160906184400.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="#3536154" class="layer">#6楼</a><a name="3536154" id="comment_anchor_3536154"></a>  <span class="comment_date">2016-10-19 19:11</span> | <a id="a_comment_author_3536154" href="https://www.cnblogs.com/gaohui/" target="_blank">夜未央0906</a> <a href="http://msg.cnblogs.com/send/%E5%A4%9C%E6%9C%AA%E5%A4%AE0906" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3536154" class="blog_comment_body">使用伪元素清楚浮动的时候，有content和clear属性就行了，不明白设置display,height,visibility这些属性是干吗的？？  兼容？？？</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3536154,'Digg',this)">支持(1)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3536154,'Bury',this)">反对(0)</a></div><span id="comment_3536154_avatar" style="display:none;">http://pic.cnblogs.com/face/822534/20170806181243.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="#3537804" class="layer">#7楼</a><a name="3537804" id="comment_anchor_3537804"></a>  <span class="comment_date">2016-10-21 15:26</span> | <a id="a_comment_author_3537804" href="http://home.cnblogs.com/u/622410/" target="_blank">叫我雷锋</a> <a href="http://msg.cnblogs.com/send/%E5%8F%AB%E6%88%91%E9%9B%B7%E9%94%8B" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3537804" class="blog_comment_body">同意6楼，不明白，但仍然是一篇好论文</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3537804,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3537804,'Bury',this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="#3550209" class="layer">#8楼</a><a name="3550209" id="comment_anchor_3550209"></a>  <span class="comment_date">2016-11-07 15:44</span> | <a id="a_comment_author_3550209" href="http://home.cnblogs.com/u/1058430/" target="_blank">大船大车</a> <a href="http://msg.cnblogs.com/send/%E5%A4%A7%E8%88%B9%E5%A4%A7%E8%BD%A6" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3550209" class="blog_comment_body">讲得不错，支持</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3550209,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3550209,'Bury',this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="#3590213" class="layer">#9楼</a><a name="3590213" id="comment_anchor_3590213"></a>  <span class="comment_date">2016-12-27 09:48</span> | <a id="a_comment_author_3590213" href="https://www.cnblogs.com/sisiliu/" target="_blank">_lss</a> <a href="http://msg.cnblogs.com/send/_lss" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3590213" class="blog_comment_body">很清楚，支持</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3590213,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3590213,'Bury',this)">反对(0)</a></div><span id="comment_3590213_avatar" style="display:none;">http://pic.cnblogs.com/face/973397/20161214173602.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="#3631570" class="layer">#10楼</a><a name="3631570" id="comment_anchor_3631570"></a>  <span class="comment_date">2017-03-04 10:53</span> | <a id="a_comment_author_3631570" href="https://www.cnblogs.com/xianshenglu/" target="_blank">xianshenglu</a> <a href="http://msg.cnblogs.com/send/xianshenglu" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3631570" class="blog_comment_body"><a href="#3536154" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3536154);">@</a>
+夜未央0906<br>难道不是为了隐藏元素么？</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3631570,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3631570,'Bury',this)">反对(0)</a></div><span id="comment_3631570_avatar" style="display:none;">http://pic.cnblogs.com/face/1065633/20180523125525.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="#3632199" class="layer">#11楼</a><a name="3632199" id="comment_anchor_3632199"></a>  <span class="comment_date">2017-03-05 13:36</span> | <a id="a_comment_author_3632199" href="https://www.cnblogs.com/gaohui/" target="_blank">夜未央0906</a> <a href="http://msg.cnblogs.com/send/%E5%A4%9C%E6%9C%AA%E5%A4%AE0906" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3632199" class="blog_comment_body"><a href="#3631570" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3631570);">@</a>
+老男孩733<br>当时说的不全面，display:block;还是需要的，因为块级元素才可以清除浮动。<br>但后面的height,visibility确实不是必须的，只要content: '';是空元素即可。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3632199,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3632199,'Bury',this)">反对(1)</a></div><span id="comment_3632199_avatar" style="display:none;">http://pic.cnblogs.com/face/822534/20170806181243.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="#3734156" class="layer">#12楼</a><a name="3734156" id="comment_anchor_3734156"></a>  <span class="comment_date">2017-07-13 09:56</span> | <a id="a_comment_author_3734156" href="http://home.cnblogs.com/u/1061285/" target="_blank">茴香鸡蛋包子</a> <a href="http://msg.cnblogs.com/send/%E8%8C%B4%E9%A6%99%E9%B8%A1%E8%9B%8B%E5%8C%85%E5%AD%90" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3734156" class="blog_comment_body">方法4与方法1有区别吗？？为什么我感觉是一个意思啊</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3734156,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3734156,'Bury',this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="#3914133" class="layer">#13楼</a><a name="3914133" id="comment_anchor_3914133"></a>  <span class="comment_date">2018-03-02 18:37</span> | <a id="a_comment_author_3914133" href="https://www.cnblogs.com/DesignerFly/" target="_blank">漠小飞</a> <a href="http://msg.cnblogs.com/send/%E6%BC%A0%E5%B0%8F%E9%A3%9E" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3914133" class="blog_comment_body">好，是真的好</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3914133,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3914133,'Bury',this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="#4029518" class="layer">#14楼</a><a name="4029518" id="comment_anchor_4029518"></a><span id="comment-maxId" style="display:none;">4029518</span><span id="comment-maxDate" style="display:none;">2018/7/26 16:24:31</span>  <span class="comment_date">2018-07-26 16:24</span> | <a id="a_comment_author_4029518" href="https://www.cnblogs.com/wsjinyi/" target="_blank">我是进一</a> <a href="http://msg.cnblogs.com/send/%E6%88%91%E6%98%AF%E8%BF%9B%E4%B8%80" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_4029518" class="blog_comment_body"><a href="#3632199" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3632199);">@</a>
+夜未央0906<br>我觉得作者这里的意思应该是display=block的存在是为了能让height=0（因为行内元素无法设置高度），如此一来配合visibility就能隐藏掉。否则有高度就会显示背景。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(4029518,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(4029518,'Bury',this)">反对(0)</a></div><span id="comment_4029518_avatar" style="display:none;">http://pic.cnblogs.com/face/1042751/20171201150430.png</span>
+			</div>
+		</div>
+	<div id="comments_pager_bottom"></div></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login('commentform');">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】超50万VC++源码: 大型组态工控、电力仿真CAD与GIS源码库！</a><br><a href="https://cloud.tencent.com/developer/edu/major-100008?fromSource=gwzcw.1297698.1297698.1297698" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'T2-腾讯蓝鲸')">【推荐】企业SaaS应用开发实战，快速构建企业运营/运维系统</a><br><a href="https://www.grapecity.com.cn/developer/activereports?utm_source=cnblogs&amp;utm_medium=blogpage&amp;utm_term=bottom&amp;utm_content=AR&amp;utm_campaign=community" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'T2-ActiveReports')">【推荐】ActiveReports 报表控件，全面满足 .NET开发需求</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a href="https://cloud.tencent.com/act/campus?fromSource=gwzcw.1310908.1310908.1310908" target="_blank"><img src="%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E6%96%B9%E6%B3%95_files/24442-20180831095017780-325806835.jpg" alt="腾讯云0831" onclick="ga('send', 'event', 'Link', 'click', 'C1');" width="300" height="250"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="https://news.cnblogs.com/n/606192/" target="_blank">百度AI加速器举办第二期DemoDay 第三期开营</a><br> ·  <a href="https://news.cnblogs.com/n/606183/" target="_blank">奥迪大规模量产首款全电动SUV 曾称续航超500公里</a><br> ·  <a href="https://news.cnblogs.com/n/606198/" target="_blank">神威E级原型机 瞄准超算“皇冠”</a><br> ·  <a href="https://news.cnblogs.com/n/606199/" target="_blank">Microsoft Photos的搜索功能现支持OCR识别功能</a><br> ·  <a href="https://news.cnblogs.com/n/606191/" target="_blank">加州拟推史上最强减排目标：2045年实现100%清洁电</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="cnblogs_c2" class="c_ad_block"><a href="http://clickc.admaster.com.cn/c/a113319,b2799157,c1705,i0,m101,8a1,8b3,h" target="_blank"><img src="%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E6%96%B9%E6%B3%95_files/24442-20180821211532241-413062430.jpg" alt="华为CH0822" onclick="ga('send', 'event', 'Link', 'click', 'C2');" width="468" height="60"></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="https://kb.cnblogs.com/page/603663/" target="_blank">如何招到一个靠谱的程序员</a><br> ·  <a href="https://kb.cnblogs.com/page/573614/" target="_blank">一个故事看懂“区块链”</a><br> ·  <a href="https://kb.cnblogs.com/page/603697/" target="_blank">被踢出去的用户</a><br> ·  <a href="https://kb.cnblogs.com/page/603279/" target="_blank">成为一个有目标的学习者</a><br> ·  <a href="https://kb.cnblogs.com/page/602903/" target="_blank">历史转折中的“杭派工程师”</a><br></div>» <a href="https://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: topicList 文章列表容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><h2 style="background: url('/Skins/LoveIsIntheAir/images/bg_li.gif') no-repeat scroll left center transparent;
+    color: #82CEEB;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 40px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    min-height: 40px;
+    padding-left: 35px;
+border-bottom: 2px solid #B79587;
+    text-align: left;"> 关于我 </h2>
+<div style="color: #333333;font-size: 12px;text-align:left;">
+<p>英文名字：Terry Chen</p>
+<p>GitHub：<a href="https://github.com/TerryChenUI" target="_blank">https://github.com/TerryChenUI</a></p>
+<h2 style="border-color:#B79587;padding: 2px 0;color: #333333;font-size: 16px;text-align: center;"> </h2>
+</div><div id="profile_block">昵称：<a href="https://home.cnblogs.com/u/ForEvErNoME/">ForEvErNoMe</a><br>园龄：<a href="https://home.cnblogs.com/u/ForEvErNoME/" title="入园时间：2011-11-10">6年9个月</a><br>粉丝：<a href="https://home.cnblogs.com/u/ForEvErNoME/followers/">458</a><br>关注：<a href="https://home.cnblogs.com/u/ForEvErNoME/followees/">0</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow('9637fb3d-860b-e111-b7b9-842b2b196315')">+加关注</a></div><script>getFollowStatus('9637fb3d-860b-e111-b7b9-842b2b196315')</script></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="calendar"><div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" title="Calendar" cellspacing="0" cellpadding="0">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar('2018/08/01');return false;">&lt;</a></td><td align="center">2018年9月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar('2018/10/01');return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" abbr="日" scope="col" align="center">日</th><th class="CalDayHeader" abbr="一" scope="col" align="center">一</th><th class="CalDayHeader" abbr="二" scope="col" align="center">二</th><th class="CalDayHeader" abbr="三" scope="col" align="center">三</th><th class="CalDayHeader" abbr="四" scope="col" align="center">四</th><th class="CalDayHeader" abbr="五" scope="col" align="center">五</th><th class="CalDayHeader" abbr="六" scope="col" align="center">六</th></tr><tr><td class="CalOtherMonthDay" align="center">26</td><td class="CalOtherMonthDay" align="center">27</td><td class="CalOtherMonthDay" align="center">28</td><td class="CalOtherMonthDay" align="center">29</td><td class="CalOtherMonthDay" align="center">30</td><td class="CalOtherMonthDay" align="center">31</td><td class="CalWeekendDay" align="center">1</td></tr><tr><td class="CalWeekendDay" align="center">2</td><td align="center">3</td><td class="CalTodayDay" align="center">4</td><td align="center">5</td><td align="center">6</td><td align="center">7</td><td class="CalWeekendDay" align="center">8</td></tr><tr><td class="CalWeekendDay" align="center">9</td><td align="center">10</td><td align="center">11</td><td align="center">12</td><td align="center">13</td><td align="center">14</td><td class="CalWeekendDay" align="center">15</td></tr><tr><td class="CalWeekendDay" align="center">16</td><td align="center">17</td><td align="center">18</td><td align="center">19</td><td align="center">20</td><td align="center">21</td><td class="CalWeekendDay" align="center">22</td></tr><tr><td class="CalWeekendDay" align="center">23</td><td align="center">24</td><td align="center">25</td><td align="center">26</td><td align="center">27</td><td align="center">28</td><td class="CalWeekendDay" align="center">29</td></tr><tr><td class="CalWeekendDay" align="center">30</td><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script></div>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block"></div><div id="sidebar_recentposts" class="sidebar-block">
+<div class="catListEssay">
+<h3 class="catListTitle">最新随笔</h3>
+<ul>
+<li><a href="https://www.cnblogs.com/ForEvErNoME/p/5198532.html">1. ivqBlog 开源博客 (angularjs + express + mongodb)</a></li><li><a href="https://www.cnblogs.com/ForEvErNoME/p/5032158.html">2. angularjs, nodejs, express, gulp, karma, jasmine 前端方案整合</a></li><li><a href="https://www.cnblogs.com/ForEvErNoME/p/4987513.html">3. 参照nopCommerce框架开发（NextCMS）</a></li><li><a href="https://www.cnblogs.com/ForEvErNoME/p/3624599.html">4. MVC + EF + Bootstrap 2 权限管理系统入门级（附源码）</a></li><li><a href="https://www.cnblogs.com/ForEvErNoME/p/3385153.html">5. CSS技巧（二）：CSS hack</a></li><li><a href="https://www.cnblogs.com/ForEvErNoME/p/3383539.html">6. CSS技巧（一）：清除浮动</a></li><li><a href="https://www.cnblogs.com/ForEvErNoME/p/3373641.html">7. CSS基础（七）：z-index详解</a></li><li><a href="https://www.cnblogs.com/ForEvErNoME/p/3364302.html">8. CSS基础（六）：浮动深入</a></li><li><a href="https://www.cnblogs.com/ForEvErNoME/p/3342234.html">9. CSS基础（五）：定位</a></li><li><a href="https://www.cnblogs.com/ForEvErNoME/p/3333209.html">10. CSS基础（四）：盒模型</a></li>
+</ul>
+</div>
+</div><div id="sidebar_categories">
+<div class="catListPostCategory">
+<h3 class="catListTitle">随笔分类<span style="font-size:11px;font-weight:normal">(63)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="https://www.cnblogs.com/ForEvErNoME/category/366062.html"> 个人总结(3)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="https://www.cnblogs.com/ForEvErNoME/category/359628.html">ADO.NET(7)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_2" href="https://www.cnblogs.com/ForEvErNoME/category/345221.html">ASP.NET(6)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_3" href="https://www.cnblogs.com/ForEvErNoME/category/382952.html">ASP.NET MVC</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_4" href="https://www.cnblogs.com/ForEvErNoME/category/399544.html">C#(5)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_5" href="https://www.cnblogs.com/ForEvErNoME/category/489081.html">CSS(9)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_6" href="https://www.cnblogs.com/ForEvErNoME/category/382951.html">Entity Framework</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_7" href="https://www.cnblogs.com/ForEvErNoME/category/345222.html">JavaScript(4)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_8" href="https://www.cnblogs.com/ForEvErNoME/category/382950.html">LINQ(9)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_9" href="https://www.cnblogs.com/ForEvErNoME/category/578136.html">NopCommerce</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_10" href="https://www.cnblogs.com/ForEvErNoME/category/344055.html">PHP Joomla(3)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_11" href="https://www.cnblogs.com/ForEvErNoME/category/354754.html">Web Service(5)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_12" href="https://www.cnblogs.com/ForEvErNoME/category/426284.html">脚本开发(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_13" href="https://www.cnblogs.com/ForEvErNoME/category/393237.html">开源项目(5)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_14" href="https://www.cnblogs.com/ForEvErNoME/category/399379.html">面试笔试(5)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_15" href="https://www.cnblogs.com/ForEvErNoME/category/406842.html">设计模式</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catListPostArchive">
+<h3 class="catListTitle">随笔档案<span style="font-size:11px;font-weight:normal">(63)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_1_Link_0" href="https://www.cnblogs.com/ForEvErNoME/archive/2016/02.html">2016年2月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_1" href="https://www.cnblogs.com/ForEvErNoME/archive/2015/12.html">2015年12月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_2" href="https://www.cnblogs.com/ForEvErNoME/archive/2015/11.html">2015年11月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_3" href="https://www.cnblogs.com/ForEvErNoME/archive/2014/03.html">2014年3月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_4" href="https://www.cnblogs.com/ForEvErNoME/archive/2013/10.html">2013年10月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_5" href="https://www.cnblogs.com/ForEvErNoME/archive/2013/09.html">2013年9月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_6" href="https://www.cnblogs.com/ForEvErNoME/archive/2013/02.html">2013年2月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_7" href="https://www.cnblogs.com/ForEvErNoME/archive/2012/11.html">2012年11月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_8" href="https://www.cnblogs.com/ForEvErNoME/archive/2012/10.html">2012年10月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_9" href="https://www.cnblogs.com/ForEvErNoME/archive/2012/09.html">2012年9月 (8)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_10" href="https://www.cnblogs.com/ForEvErNoME/archive/2012/08.html">2012年8月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_11" href="https://www.cnblogs.com/ForEvErNoME/archive/2012/07.html">2012年7月 (10)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_12" href="https://www.cnblogs.com/ForEvErNoME/archive/2012/06.html">2012年6月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_13" href="https://www.cnblogs.com/ForEvErNoME/archive/2012/05.html">2012年5月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_14" href="https://www.cnblogs.com/ForEvErNoME/archive/2012/04.html">2012年4月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_15" href="https://www.cnblogs.com/ForEvErNoME/archive/2012/03.html">2012年3月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_16" href="https://www.cnblogs.com/ForEvErNoME/archive/2012/02.html">2012年2月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_17" href="https://www.cnblogs.com/ForEvErNoME/archive/2012/01.html">2012年1月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_18" href="https://www.cnblogs.com/ForEvErNoME/archive/2011/12.html">2011年12月 (3)</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_scorerank" class="sidebar-block">
+<div class="catListBlogRank">
+<h3 class="catListTitle">积分与排名</h3>
+<ul>
+	<li class="liScore">
+		积分 -	120802
+	</li><li class="liRank">
+		排名 -	2884
+	</li>
+</ul>
+</div>
+
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/ForEvErNoME/p/3383539.html#4029518">1. Re:CSS技巧（一）：清除浮动</a></li>
+        <li class="recent_comment_body">@夜未央0906我觉得作者这里的意思应该是display=block的存在是为了能让height=0（因为行内元素无法设置高度），如此一来配合visibility就能隐藏掉。否则有高度就会显示背景。.......</li>
+        <li class="recent_comment_author">--我是进一</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/ForEvErNoME/archive/2012/04/21/2460944.html#3992851">2. Re:PHP生成条形码</a></li>
+        <li class="recent_comment_body">你好，请问怎么生成多个编码，并且平铺显示到同一页上~谢谢</li>
+        <li class="recent_comment_author">--红玫瑰1688</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/ForEvErNoME/p/3373641.html#3982168">3. Re:CSS基础（七）：z-index详解</a></li>
+        <li class="recent_comment_body">博客园首页新随笔联系管理订阅随笔- 63 文章- 0 评论- 421 CSS基础（七）：z-index详解概念z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的........</li>
+        <li class="recent_comment_author">--无言帝君</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/ForEvErNoME/archive/2012/07/05/2577778.html#3915322">4. Re:分享ASP.NET+jQuery MiniUI后台购物管理</a></li>
+        <li class="recent_comment_body">楼主您好，想学习一下，下载不下来 能发我邮箱吗，1361226994@qq.com 谢谢</li>
+        <li class="recent_comment_author">--瑜洲的小迷妹</li>
+        <li class="recent_comment_title"><a href="https://www.cnblogs.com/ForEvErNoME/p/3383539.html#3914133">5. Re:CSS技巧（一）：清除浮动</a></li>
+        <li class="recent_comment_body">好，是真的好</li>
+        <li class="recent_comment_author">--漠小飞</li>
+</ul>
+</div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="https://www.cnblogs.com/ForEvErNoME/p/3383539.html">1. CSS技巧（一）：清除浮动(86409)</a></li><li><a href="https://www.cnblogs.com/ForEvErNoME/p/3373641.html">2. CSS基础（七）：z-index详解(50789)</a></li><li><a href="https://www.cnblogs.com/ForEvErNoME/archive/2012/04/21/2460944.html">3. PHP生成条形码(36513)</a></li><li><a href="https://www.cnblogs.com/ForEvErNoME/p/3624599.html">4. MVC + EF + Bootstrap 2 权限管理系统入门级（附源码）(33815)</a></li><li><a href="https://www.cnblogs.com/ForEvErNoME/archive/2012/09/07/2610159.html">5. .NET笔试题集（一）(21025)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="https://www.cnblogs.com/ForEvErNoME/p/3624599.html">1. MVC + EF + Bootstrap 2 权限管理系统入门级（附源码）(128)</a></li><li><a href="https://www.cnblogs.com/ForEvErNoME/archive/2012/07/05/2577778.html">2. 分享ASP.NET+jQuery MiniUI后台购物管理(99)</a></li><li><a href="https://www.cnblogs.com/ForEvErNoME/archive/2012/05/16/2502432.html">3. 兼职开发悟出的点点滴滴(39)</a></li><li><a href="https://www.cnblogs.com/ForEvErNoME/p/3383539.html">4. CSS技巧（一）：清除浮动(14)</a></li><li><a href="https://www.cnblogs.com/ForEvErNoME/p/4987513.html">5. 参照nopCommerce框架开发（NextCMS）(13)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div class="RecentComment">
+	<div id="TopDiggPostsBlock"><ul><li><a href="https://www.cnblogs.com/ForEvErNoME/p/3624599.html">1. MVC + EF + Bootstrap 2 权限管理系统入门级（附源码）(36)</a></li><li><a href="https://www.cnblogs.com/ForEvErNoME/p/3383539.html">2. CSS技巧（一）：清除浮动(35)</a></li><li><a href="https://www.cnblogs.com/ForEvErNoME/p/3373641.html">3. CSS基础（七）：z-index详解(18)</a></li><li><a href="https://www.cnblogs.com/ForEvErNoME/archive/2012/02/16/2354507.html">4. Web Services 应用开发学习笔记（一）：XML概述(9)</a></li><li><a href="https://www.cnblogs.com/ForEvErNoME/archive/2012/06/05/2529259.html">5. ASP.NET发送电子邮件(9)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+		<div class="clear"></div>
+		<div id="footer">
+			
+<!--done-->
+Copyright ©2018 ForEvErNoMe
+		</div><!--end: footer -->
+	</div><!--end: sideBar 侧边栏容器 -->
+</div><!--end: home 自定义的最大容器 -->
+</center>
+
+
+</body></html>
